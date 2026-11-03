@@ -1,5 +1,14 @@
 # 九重紫 · 链接页
 
+- 在线：https://sakimmoe.github.io/kokonoyu-link/
+- 仓库：https://github.com/Sakimmoe/kokonoyu-link
+
+`index.html` 是主页面：顶部直接用 `home.jpg` 原图（不裁剪），名字和一行小字在图下方，下面是白色胶囊按钮。
+`preview.html` 是预览页，可以看另外五个备选版本（01–05）。
+
+---
+# 九重紫 · 链接页（说明）
+
 粉色调、亮色系。整页背景用桌面上的 `home.jpg`：完整铺满屏宽（`background-size:100% auto`），不做任何裁剪；原图四周的白底已刷成同色粉，所以图片和页面背景无缝衔接。宽屏下最大铺到 1400px 宽、居中。链接资料取自 [kokonoyu.com](https://www.kokonoyu.com/)。
 
 | 文件 | 方案 | 一句话 |
