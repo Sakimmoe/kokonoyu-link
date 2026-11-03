@@ -37,7 +37,7 @@ D:\node.exe serve.js
 - 字体统一用 **Resource Han Rounded CN**（资源圆体，OFL 授权），放在 `assets/fonts/RHR-CN.woff2`：
   只子集了页面用到的 406 个字符，保留 200–900 可变字重，一个文件 235KB，不依赖任何 CDN。
   字体来源和重新子集的方法写在 `assets/fonts/README.txt`。
-- 每页 15 个链接：哔哩哔哩、直播间 9162799、YouTube、X、爱发电、FANBOX、BOOTH，加站内八个（主页、紫记、同传、作品、音乐、画廊、历程、留言板）。
+- 主页只留 6 个主链接（Bilibili、YouTube、X、Fanbox、爱发电、BOOTH），图标用各平台官方标志。
 - 头像、插画版权归九重紫及合作画师所有，这里只是非官方整理。
 
 ## 改字
