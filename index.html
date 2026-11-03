@@ -30,14 +30,14 @@
   /* 背景装饰 */
   .bg{
     position:fixed; inset:0; z-index:0; pointer-events:none;
-    background:url("assets/images/7.png") center bottom / cover no-repeat;
+    background:url("assets/images/7.png") center calc(100% + 4vh) / auto 112% no-repeat;
   }
   .bg::after{
     content:""; position:absolute; inset:0;
     background:linear-gradient(180deg, rgba(255,250,252,.30) 0%, rgba(255,250,252,.42) 45%, rgba(255,248,252,.62) 100%);
   }
   @media (max-width:899px){
-    .bg{background-position:center bottom; background-size:auto 88%}
+    .bg{background-position:center calc(100% + 3vh); background-size:auto 94%}
   }
   .deco{position:fixed; inset:0; pointer-events:none; z-index:0; color:#cbb8ec; opacity:.5}
   .deco svg{position:absolute; fill:currentColor}
