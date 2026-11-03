@@ -62,7 +62,7 @@
 
   /* 背景：纯白，图片本身居中放在页面里 */
   .bg{position:fixed; inset:0; z-index:-2; background:#fff}
-  .title{position:relative; z-index:2; margin:0; text-align:center; color:var(--violet-d); line-height:1.25}
+  .title{position:relative; z-index:2; margin:0; text-align:center; color:#5f4879; line-height:1.25; text-shadow:0 1px 2px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.9)}
   h1{
     margin:0; font-size:clamp(20px, 2.3vh, 26px); letter-spacing:.12em; font-weight:700; color:#6b53a4;
   }
@@ -76,47 +76,18 @@
 
   /* 链接条 */
   .links{
-    position:relative; z-index:3; margin:0; display:flex; flex-direction:column; gap:6px;
-    padding:10px; border-radius:32px;
-    background:
-      radial-gradient(70% 60% at 0% 0%, rgba(255,178,210,.55), rgba(255,178,210,0) 70%),
-      radial-gradient(70% 60% at 100% 50%, rgba(199,170,255,.55), rgba(199,170,255,0) 70%),
-      radial-gradient(70% 60% at 30% 100%, rgba(168,214,255,.5), rgba(168,214,255,0) 70%),
-      rgba(255,255,255,.35);
-    box-shadow:inset 0 0 40px rgba(255,255,255,.6);
+    position:relative; z-index:3; margin:0; display:flex; flex-direction:column; gap:2px;
+    padding:0; background:transparent; box-shadow:none; border-radius:0;
   }
   .pill{
-    position:relative; display:grid; grid-template-columns:26px 1fr 16px; align-items:center; gap:11px;
-    height:clamp(40px, 5.2vh, 50px); padding:0 20px 0 16px;
+    position:relative; display:grid; grid-template-columns:26px 1fr; align-items:center; gap:11px;
+    height:clamp(40px, 5.2vh, 50px); padding:0 12px;
     border-radius:999px; text-decoration:none; color:var(--ink);
-    background:linear-gradient(155deg, rgba(255,255,255,.58) 0%, rgba(250,246,255,.30) 42%, rgba(255,255,255,.40) 72%, rgba(250,245,255,.52) 100%);
-    -webkit-backdrop-filter:blur(18px) saturate(180%);
-    backdrop-filter:blur(18px) saturate(180%);
-    border:1px solid rgba(255,255,255,.75);
-    box-shadow:
-      0 20px 36px -22px rgba(110,70,160,.55),
-      0 2px 10px -4px rgba(110,70,160,.22),
-      inset 0 1.5px 0 rgba(255,255,255,1),
-      inset 0 -1px 0 rgba(255,255,255,.5),
-      inset 0 0 30px rgba(255,255,255,.42),
-      inset 0 -10px 22px -12px rgba(150,110,200,.25);
-    overflow:hidden; isolation:isolate;
-    transition:transform .18s cubic-bezier(.3,1.2,.5,1), box-shadow .18s, background .18s;
+    background:transparent; border:0; box-shadow:none;
+    transition:background .18s, padding .18s;
   }
-  .pill::before{
-    content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
-    background:radial-gradient(120% 90% at 12% -20%, rgba(255,255,255,.85), rgba(255,255,255,0) 55%);
-  }
-  .pill:hover{
-    transform:translateY(-2px);
-    background:linear-gradient(135deg, rgba(255,255,255,.78) 0%, rgba(255,255,255,.42) 45%, rgba(255,255,255,.55) 100%);
-    box-shadow:
-      0 24px 40px -22px rgba(110,70,160,.5),
-      0 2px 8px -4px rgba(110,70,160,.2),
-      inset 0 1px 0 rgba(255,255,255,1),
-      inset 0 -1px 0 rgba(255,255,255,.55),
-      inset 0 0 26px rgba(255,255,255,.45);
-  }
+  .pill:hover{background:rgba(255,255,255,.45)}
+  .pill:focus-visible{outline:2px solid rgba(139,111,196,.6); outline-offset:2px}
   .pill:focus-visible{outline:2px solid rgba(139,111,196,.5); outline-offset:3px}
   .pill .ic{
     width:26px; height:26px; border-radius:8px; display:grid; place-items:center;
@@ -124,14 +95,14 @@
   }
   .pill .ic svg{width:17px; height:17px; fill:#fff; display:block}
   .pill .ic img{width:26px; height:26px; object-fit:cover; display:block}
-  .pill b{font-size:clamp(13.5px, 1.5vh, 15.5px); font-weight:500; letter-spacing:.06em; color:#6a5590}
-  .pill .chev{color:#c3b0dd}
+  .pill b{font-size:clamp(13.5px, 1.5vh, 15.5px); font-weight:500; letter-spacing:.06em; color:#5f4879; text-shadow:0 1px 2px rgba(255,255,255,.95), 0 0 10px rgba(255,255,255,.9)}
+  .pill .chev{display:none}
   .pill:hover .chev{color:var(--violet)}
 
 
   /* 结尾 */
   .thanks{
-    margin:0 auto; text-align:center; font-size:15px; color:#8b73b8;
+    margin:0 auto; text-shadow:0 1px 2px rgba(255,255,255,.95), 0 0 10px rgba(255,255,255,.9); text-align:center; font-size:15px; color:#8b73b8;
     letter-spacing:.12em; position:relative; display:table;
   }
   .thanks::after{
@@ -151,7 +122,7 @@
 
   @media (min-width:760px){
     .page{align-items:flex-start; padding-left:8vw; padding-right:0; gap:clamp(6px,1vh,10px)}
-    .page > *{width:min(520px, 44vw)}
+    .page > *{width:min(330px, 30vw)}
     .title{text-align:left}
     .pill{height:clamp(40px, 4.8vh, 50px)}
     .links{padding:10px; gap:6px}
