@@ -50,17 +50,17 @@
   .d-spark-3{right:52px; bottom:14%; width:20px; opacity:.35; color:#cbb2ec}
   .d-cat{left:6px; top:54%; width:66px; opacity:.22; transform:rotate(-6deg); color:#bda4e6; fill:none; stroke:currentColor; stroke-width:2.4}
 
-  .page{position:relative; z-index:1; width:100%; max-width:560px; margin:0 auto; padding-bottom:38px}
+  .page{position:relative; z-index:1; width:100%; max-width:560px; margin:-26px auto 0; padding:0 0 34px}
 
-  /* 顶部：原图 home.jpg，不做任何裁剪 */
-  .hero{position:relative; background:#fff}
-  .hero > img{display:block; width:100%; height:auto}
+  /* 顶部：原图 home.jpg 满幅铺开，白边和白色页面融在一起，底部渐隐进淡紫 */
+  .hero{position:relative; background:#fff; line-height:0}
+  .hero img{width:100%; height:auto; display:block}
   .hero::after{
-    content:""; position:absolute; left:0; right:0; bottom:0; height:26%;
-    background:linear-gradient(180deg, rgba(244,236,255,0), rgba(244,236,255,.55));
+    content:""; position:absolute; left:0; right:0; bottom:0; height:34%;
+    background:linear-gradient(180deg, rgba(244,236,255,0), #f4ecff 92%);
     pointer-events:none;
   }
-  .title{position:relative; z-index:2; margin:18px 20px 0; text-align:center; color:var(--violet-d)}
+  .title{position:relative; z-index:2; margin:22px 20px 0; text-align:center; color:var(--violet-d)}
   h1{
     margin:0; font-size:27px; letter-spacing:.12em; font-weight:700; color:#6b53a4;
   }
@@ -73,7 +73,7 @@
   .title .note svg{display:inline-block; vertical-align:-2px; margin-left:2px; width:14px; height:14px}
 
   /* 链接条 */
-  .links{position:relative; z-index:3; margin:22px 20px 0; display:flex; flex-direction:column; gap:14px}
+  .links{position:relative; z-index:3; margin:20px 20px 0; display:flex; flex-direction:column; gap:12px}
   .pill{
     display:grid; grid-template-columns:30px 1fr 16px; align-items:center; gap:12px;
     min-height:66px; padding:0 22px 0 20px;
@@ -115,12 +115,10 @@
   .sprite{position:absolute; width:0; height:0; overflow:hidden}
 
   @media (min-width:760px){
-    body{padding:34px 0 50px}
-    .page{padding-bottom:44px}
-    .hero{border-radius:26px; overflow:hidden; box-shadow:0 26px 60px -40px rgba(110,70,160,.6)}
-    .title{margin-top:24px}
+    .page{margin:-36px auto 0; max-width:600px; padding-bottom:60px}
+    .title{margin-top:30px}
     h1{font-size:30px}
-    .links{margin:26px 46px 0}
+    .links{margin:24px 40px 0}
     .pill{min-height:70px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none !important}}
@@ -169,12 +167,12 @@
   <svg class="d-cat" viewBox="0 0 80 70"><use href="#cat"/></svg>
 </div>
 
-<div class="page">
-  <header class="hero">
-    <img src="assets/images/home.jpg" alt="九重紫" width="1620" height="580">
-  </header>
+<header class="hero">
+  <img src="assets/images/home.jpg" alt="九重紫" width="1620" height="580">
+</header>
 
-  <div class="title">
+<div class="page">
+<div class="title">
     <h1>九重紫</h1>
     <span class="sub">Kokonoyu</span>
     <p class="note">欢迎来到 我的小小世界<svg viewBox="0 0 24 24"><use href="#heart"/></svg></p>
