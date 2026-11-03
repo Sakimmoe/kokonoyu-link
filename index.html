@@ -17,12 +17,28 @@
   }
   *{box-sizing:border-box}
   body{
-    margin:0; min-height:100svh; background:#fff; color:var(--ink);
+    margin:0; min-height:100svh; color:var(--ink);
+    background:
+      radial-gradient(70% 55% at 50% 0%, #ffeef5 0%, rgba(255,238,245,0) 70%),
+      radial-gradient(60% 45% at 100% 100%, #f3ecff 0%, rgba(243,236,255,0) 70%),
+      #fff7fb;
     font-family:var(--font); -webkit-font-smoothing:antialiased;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:clamp(10px, 2vh, 18px); padding:clamp(16px, 3vh, 30px) 16px;
+    padding:clamp(14px, 2.6vh, 26px) 16px; gap:clamp(8px, 1.5vh, 14px); position:relative; z-index:2;
   }
+  .page{width:min(440px, 100%); display:flex; flex-direction:column; align-items:center; gap:clamp(8px,1.6vh,14px)}
   /* 背景装饰 */
+  .bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:url("assets/images/7.png") center bottom / cover no-repeat;
+  }
+  .bg::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(255,250,252,.30) 0%, rgba(255,250,252,.42) 45%, rgba(255,248,252,.62) 100%);
+  }
+  @media (max-width:899px){
+    .bg{background-position:center bottom; background-size:auto 88%}
+  }
   .deco{position:fixed; inset:0; pointer-events:none; z-index:0; color:#cbb8ec; opacity:.5}
   .deco svg{position:absolute; fill:currentColor}
   .d-flower-l{left:-46px; bottom:-30px; width:170px; opacity:.9; transform:rotate(-10deg)}
@@ -36,11 +52,12 @@
   .d-cat{left:4%; top:56%; width:56px; opacity:.5; fill:none; stroke:currentColor; stroke-width:2.4}
 
   /* 顶部图片：不裁剪，居中 */
-  .hero{position:relative; z-index:1; width:100%; display:flex; justify-content:center}
-  .hero img{display:block; width:auto; height:auto; max-width:min(100%, 760px); max-height:26vh}
+  .hero{position:relative; z-index:1; width:min(440px, 100%); display:flex; justify-content:center}
+  .hero{border-radius:18px; overflow:hidden}
+  .hero img{display:block; width:100%; height:auto}
 
   /* 名字 */
-  .title{position:relative; z-index:1; text-align:center}
+  .title{position:relative; z-index:2; text-align:center; text-shadow:0 1px 0 rgba(255,255,255,.95), 0 0 14px rgba(255,255,255,.9)}
   .title h1{margin:0; font-size:clamp(22px, 3.4vh, 27px); line-height:1.2; letter-spacing:.14em; color:#6b53a4}
   .title .sub{display:block; margin-top:3px; font-size:11px; letter-spacing:.26em; color:var(--ink-3)}
   .title .note{margin:7px 0 0; font-size:11.5px; letter-spacing:.06em; color:var(--ink-2)}
@@ -48,28 +65,28 @@
 
   /* 两列正方形按钮 */
   .links{
-    position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr;
-    gap:clamp(8px, 1.4vh, 12px); width:min(284px, 80vw); margin:0;
+    position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr;
+    gap:10px; width:min(238px, 64%); margin:0;
   }
   .pill{
     aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:9px; border:1.5px solid var(--line); border-radius:22px;
+    gap:7px; border:1.5px solid var(--line); border-radius:22px;
     text-decoration:none; color:inherit; background:transparent;
     transition:background .18s, border-color .18s, transform .18s;
   }
   .pill:hover{background:#fdf9ff; border-color:#dcc9f2; transform:translateY(-2px)}
   .pill:focus-visible{outline:2px solid rgba(139,111,196,.5); outline-offset:3px}
   .pill .ic{
-    width:32px; height:32px; border-radius:9px; display:grid; place-items:center; overflow:hidden;
+    width:29px; height:29px; border-radius:9px; display:grid; place-items:center; overflow:hidden;
   }
-  .pill .ic svg{width:20px; height:20px; fill:#fff; display:block}
-  .pill .ic img{width:32px; height:32px; object-fit:cover; display:block}
+  .pill .ic svg{width:18px; height:18px; fill:#fff; display:block}
+  .pill .ic img{width:29px; height:29px; object-fit:cover; display:block}
   .pill .chev{display:none}
-  .pill b{font-size:12.5px; font-weight:500; letter-spacing:.03em; color:#5f4879; text-align:center; line-height:1.2}
+  .pill b{font-size:12px; font-weight:500; letter-spacing:.03em; color:#5f4879; text-shadow:0 1px 0 rgba(255,255,255,.9), 0 0 10px rgba(255,255,255,.85); text-align:center; line-height:1.2}
 
   /* 结尾 */
   .thanks{
-    position:relative; z-index:1; margin:0; padding-bottom:7px; text-align:center;
+    position:relative; z-index:2; margin:0; padding-bottom:7px; text-align:center;
     font-size:13px; color:#8b73b8; letter-spacing:.1em;
   }
   .thanks svg{width:12px; height:12px; vertical-align:-1px; margin-left:3px; fill:#e19cc0}
@@ -78,7 +95,7 @@
     background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'%3E%3Cpath d='M2 5.5C22 1.5 38 1 58 3.6 78 6.2 96 6 118 2.6' fill='none' stroke='%23d9c2ee' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 5px;
   }
   footer{
-    position:relative; z-index:1; margin:0; text-align:center;
+    position:relative; z-index:2; margin:0; text-align:center;
     font-size:10.5px; color:#b6a5cf; letter-spacing:.16em;
   }
   footer .fl{color:#c9b4e8; margin:0 5px}
@@ -135,10 +152,6 @@
   <svg class="d-spark-3" viewBox="0 0 24 24"><use href="#spark"/></svg>
   <svg class="d-cat" viewBox="0 0 80 70"><use href="#cat"/></svg>
 </div>
-
-<header class="hero">
-  <img src="assets/images/home.png" alt="九重紫" width="2095" height="750">
-</header>
 
 <div class="page">
 <div class="title">
