@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>九重紫 · 链接｜明信片</title>
+<link rel="icon" href="assets/images/favicon.png">
+<meta name="description" content="九重紫（Kokonoe Yukari）的链接页：B 站、直播间、YouTube、X、爱发电、FANBOX 与站内内容。">
+<style>
+  @font-face{font-family:"Resource Han Rounded CN";src:url("assets/fonts/RHR-CN.woff2") format("woff2");font-weight:200 900;font-display:swap}
+  :root{
+    --font:"Resource Han Rounded CN","Hiragino Maru Gothic ProN","PingFang SC","Microsoft YaHei",sans-serif;
+    --paper:#fff8f1;
+    --ink:#58443f;
+    --ink-2:#8a6f66;
+    --ink-3:#bda49a;
+    --rose:#c96a75;
+    --rose-d:#a94f5c;
+    --gold:#d99a4e;
+    --line:#f0dcc9;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; min-height:100svh; color:var(--ink);
+    font-family:var(--font);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+    body::before{
+    content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:#ffe0e5 url("assets/images/bg-full.jpg") top center / 100% auto no-repeat;
+  }
+
+.sheet{
+    position:relative; z-index:1; width:100%; max-width:436px;
+    margin:calc(100vw / 2.7931 + 16px) auto 40px; padding:34px 22px 38px;
+    background:#fff9f3; border-radius:14px;
+    box-shadow:0 26px 50px -30px rgba(150,100,80,.55), 0 0 0 1px rgba(255,255,255,.7) inset;
+  }
+  @media (min-width:900px){
+    .sheet{margin:calc(100vw / 2.7931 - 24px) auto 40px; max-width:470px; padding:40px 32px 42px}
+  }
+
+  /* 落款印 */
+  .stamp{
+    position:absolute; right:18px; top:16px; z-index:3;
+    width:42px; height:42px; border-radius:4px;
+    background:rgba(255,255,255,.9); border:2px solid #dc9292;
+    display:grid; place-items:center; transform:rotate(-7deg);
+    font-family:var(--font); font-size:16px; line-height:1; color:#bf6a6a;
+    letter-spacing:.02em; font-weight:600;
+  }
+
+  /* 链接条 */
+  .list{display:flex; flex-direction:column; gap:9px; margin:24px 0 0; padding:0; list-style:none}
+  .strip{
+    display:grid; grid-template-columns:34px 1fr 16px; align-items:center; gap:11px;
+    padding:11px 14px; background:#fffdfa;
+    border:1.4px dashed #eacdb7; border-radius:12px;
+    text-decoration:none; color:var(--ink);
+    transition:transform .2s ease, border-color .2s ease, background .2s;
+  }
+  .list li:nth-child(odd) .strip{transform:rotate(-.35deg)}
+  .list li:nth-child(even) .strip{transform:rotate(.3deg)}
+  .strip:hover{transform:rotate(0) translateY(-1px); border-color:#dda58f; background:#fff}
+  .strip:focus-visible{outline:2px dashed rgba(201,106,117,.6); outline-offset:3px}
+  .strip .ic{color:#c98c7c; display:grid; place-items:center}
+  .strip b{display:block; font-size:14.5px; font-weight:600; letter-spacing:.04em; line-height:1.35}
+  .strip em{display:block; font-style:normal; font-size:10.5px; color:#b39389; margin-top:2px; letter-spacing:.02em}
+  .strip .ar{color:#e0b9a8; transition:transform .2s}
+  .strip:hover .ar{transform:translateX(2px)}
+
+  /* 应援 */
+  .support{display:flex; gap:8px; margin-top:14px}
+  .support a{
+    flex:1; text-align:center; padding:10px 4px; border-radius:10px;
+    background:#fffdfa; border:1.4px dashed #eacdb7;
+    color:#96675f; text-decoration:none; font-size:11.5px; letter-spacing:.03em;
+    transition:background .2s, color .2s, border-color .2s;
+  }
+  .support a:hover{background:#fff; border-color:#dda58f; color:var(--rose-d)}
+
+  /* 小档案 */
+  .facts{
+    margin:22px 0 0; padding:0; list-style:none;
+    display:flex; flex-wrap:wrap; gap:6px 0;
+    font-family:var(--font); font-size:13px; color:#8a6f66;
+  }
+  .facts li{padding-right:14px; position:relative}
+  .facts li:not(:last-child)::after{
+    content:"/"; position:absolute; right:5px; color:#d9c2b4;
+  }
+  .facts b{color:#6a5049; font-weight:400; margin-right:2px}
+
+  /* 站内 */
+  .site-head{
+    margin:26px 0 10px; font-family:var(--font);
+    font-size:15px; color:#8a6f66; letter-spacing:.1em;
+    display:flex; align-items:center; gap:10px;
+  }
+  .site-head::after{content:""; flex:1; height:1px; background:repeating-linear-gradient(90deg,#e9d3c0 0 4px, transparent 4px 8px)}
+  .sites{display:grid; grid-template-columns:1fr 1fr; gap:2px 18px; margin:0; padding:0; list-style:none}
+  .sites a{
+    display:flex; align-items:baseline; gap:8px;
+    padding:9px 0; color:#6f5650; text-decoration:none; font-size:13px;
+    border-bottom:1px dotted #e6cdb9;
+    transition:color .2s;
+  }
+  .sites a::before{content:""; width:4px; height:4px; border-radius:50%; background:#e2b39f; flex:0 0 auto; transform:translateY(-2px)}
+  .sites a:hover{color:var(--rose-d)}
+  .sites a:hover::before{background:var(--rose)}
+
+  footer{
+    margin-top:28px; padding-top:16px; border-top:1px dashed #e8d2bf;
+    font-family:var(--font); font-size:12px; color:#ad9186;
+    letter-spacing:.04em; line-height:1.9; text-align:center;
+  }
+  footer .mark{color:#c98c7c; letter-spacing:.3em; display:block; margin-bottom:4px}
+
+  .i{width:18px; height:18px; display:block; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+  .sprite{position:absolute; width:0; height:0; overflow:hidden}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="bili" viewBox="0 0 24 24"><rect x="2.6" y="7.2" width="18.8" height="12.6" rx="3.4"/><path d="M7.4 3.2 10 6.4M16.6 3.2 14 6.4"/></symbol>
+  <symbol id="live" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.1"/><path d="M8.3 8.3a5.3 5.3 0 0 0 0 7.4M15.7 15.7a5.3 5.3 0 0 0 0-7.4"/><path d="M5.5 5.5a9.1 9.1 0 0 0 0 12.9M18.5 18.5a9.1 9.1 0 0 0 0-12.9"/></symbol>
+  <symbol id="yt" viewBox="0 0 24 24"><rect x="2.2" y="5.4" width="19.6" height="13.2" rx="4"/><path d="M10.3 9.2 15.2 12l-4.9 2.8z"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></symbol>
+  <symbol id="afd" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M13.1 6.4 8.9 12.5h2.9l-1 5.1 4.3-6.4h-3z"/></symbol>
+  <symbol id="fanbox" viewBox="0 0 24 24"><path d="M3.4 8.2 12 4l8.6 4.2v7.6L12 20l-8.6-4.2z"/><path d="M3.4 8.2 12 12.4l8.6-4.2M12 12.4V20"/></symbol>
+  <symbol id="booth" viewBox="0 0 24 24"><path d="M5.6 8.4h12.8L19.4 20H4.6z"/><path d="M9.2 8.4V6.6a2.8 2.8 0 0 1 5.6 0v1.8"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.4 18.6 12 13 17.6"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><rect x="4.6" y="3.2" width="14.8" height="17.6" rx="2.6"/><path d="M8.6 8.4h6.8M8.6 12h6.8M8.6 15.6h4"/></symbol>
+  <symbol id="sub" viewBox="0 0 24 24"><path d="M3.6 6.6h16.8v9.2h-9l-5.2 3.6v-3.6H3.6z"/><path d="M7.6 10.2h8.8M7.6 12.9h5.4"/></symbol>
+  <symbol id="works" viewBox="0 0 24 24"><rect x="3.4" y="8.6" width="17.2" height="10.8" rx="2.4"/><path d="M3.9 8.6 5.4 5.2l15.5 3.9"/></symbol>
+  <symbol id="music" viewBox="0 0 24 24"><circle cx="8.4" cy="17" r="2.6"/><path d="M11 17V5.6l8.4-1.9v3.4L11 9.1"/></symbol>
+  <symbol id="gallery" viewBox="0 0 24 24"><rect x="3.2" y="4.8" width="17.6" height="14.4" rx="2.8"/><circle cx="8.6" cy="9.8" r="1.5"/><path d="M4.6 17.2 9.9 11l3.6 3.7 2.9-2.5 3.2 5"/></symbol>
+  <symbol id="mile" viewBox="0 0 24 24"><path d="M6.2 21V3.6"/><path d="M6.2 4.2h11.4l-2.6 4.8 2.6 4.8H6.2"/></symbol>
+  <symbol id="guest" viewBox="0 0 24 24"><rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.8"/><path d="M3.6 7.2 12 13.1l8.4-5.9"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path d="M4 10.6 12 4l8 6.6V20H4z"/><path d="M9.6 20v-5.6h4.8V20"/></symbol>
+</svg>
+
+<div class="sheet">
+  <span class="stamp" aria-hidden="true">九重</span>
+<header>
+    <span class="furi">ここのゆ</span>
+    <h1>九重紫</h1>
+    <span class="en">Kokonoe Yukari</span>
+    <p class="note">亚人巫女。替人圆梦、送其往生，借此延长自己的寿命。<br>直播以游戏和杂谈为主，偶尔唱歌、偶尔画画。</p>
+  </header>
+
+  <ul class="list">
+    <li><a class="strip" href="https://space.bilibili.com/225347042" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#bili"/></svg></span>
+      <span><b>哔哩哔哩</b><em>space.bilibili.com / 225347042</em></span>
+      <svg class="i ar" width="15" height="15"><use href="#arrow"/></svg>
+    </a></li>
+    <li><a class="strip" href="https://live.bilibili.com/9162799" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#live"/></svg></span>
+      <span><b>直播间</b><em>9162799 · 游戏 / 杂谈 / 唱歌</em></span>
+      <svg class="i ar" width="15" height="15"><use href="#arrow"/></svg>
+    </a></li>
+    <li><a class="strip" href="https://www.youtube.com/@KokonoeYukari" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#yt"/></svg></span>
+      <span><b>YouTube</b><em>@KokonoeYukari</em></span>
+      <svg class="i ar" width="15" height="15"><use href="#arrow"/></svg>
+    </a></li>
+    <li><a class="strip" href="https://twitter.com/Kokonoe_Yukari" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#x"/></svg></span>
+      <span><b>X / Twitter</b><em>@Kokonoe_Yukari</em></span>
+      <svg class="i ar" width="15" height="15"><use href="#arrow"/></svg>
+    </a></li>
+  </ul>
+
+  <div class="support">
+    <a href="https://afdian.com/a/kokonoeyukari" target="_blank" rel="noopener">爱发电</a>
+    <a href="https://kokonoe-yukari.fanbox.cc" target="_blank" rel="noopener">FANBOX</a>
+    <a href="https://kokonoeyukari.booth.pm" target="_blank" rel="noopener">BOOTH</a>
+  </div>
+
+  <ul class="facts">
+    <li><b>生日</b>7.22</li>
+    <li><b>身高</b>152cm</li>
+    <li><b>巨蟹座</b></li>
+    <li><b>粉丝名</b>平和族</li>
+  </ul>
+
+  <h2 class="site-head">站内的信</h2>
+  <ul class="sites">
+    <li><a href="https://www.kokonoyu.com/" target="_blank" rel="noopener">个人主页</a></li>
+    <li><a href="https://zi.kokonoyu.com/" target="_blank" rel="noopener">紫记</a></li>
+    <li><a href="https://sub.kokonoyu.com/" target="_blank" rel="noopener">同传</a></li>
+    <li><a href="https://www.kokonoyu.com/works.html" target="_blank" rel="noopener">作品</a></li>
+    <li><a href="https://www.kokonoyu.com/music.html" target="_blank" rel="noopener">音乐</a></li>
+    <li><a href="https://www.kokonoyu.com/gallery.html" target="_blank" rel="noopener">画廊</a></li>
+    <li><a href="https://www.kokonoyu.com/milestones.html" target="_blank" rel="noopener">历程</a></li>
+    <li><a href="https://www.kokonoyu.com/guestbook.html" target="_blank" rel="noopener">留言板</a></li>
+  </ul>
+
+  <footer>
+    <span class="mark">KOKONOYU</span>
+    非官方整理 · 素材版权归九重紫及合作画师所有
+  </footer>
+</div>
+
+</body>
+</html>

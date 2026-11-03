@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>九重紫 · 方案预览</title>
+<link rel="icon" href="assets/images/favicon.png">
+<style>
+  @font-face{font-family:"Resource Han Rounded CN";src:url("assets/fonts/RHR-CN.woff2") format("woff2");font-weight:200 900;font-display:swap}
+  :root{--font:"Resource Han Rounded CN","PingFang SC","Microsoft YaHei",sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0; padding:40px 20px 60px; color:#5f4b86; font-family:var(--font);
+    background:radial-gradient(80% 40% at 20% 0%,#fdf2ff 0%,rgba(253,242,255,0) 60%),radial-gradient(70% 40% at 100% 10%,#efe3ff 0%,rgba(239,227,255,0) 60%),#f4ecff;
+    -webkit-font-smoothing:antialiased}
+  h1{margin:0 auto; max-width:900px; font-size:20px; letter-spacing:.08em}
+  h1 span{color:#a58ac9; font-weight:400; font-size:13px; letter-spacing:.24em; margin-left:10px}
+  .lead{margin:8px auto 26px; max-width:900px; font-size:12px; color:#8a75ad}
+  .stage{display:flex; justify-content:center}
+  .device{width:406px; padding:8px; border-radius:34px; background:linear-gradient(160deg,#fff,#fbf6ff);
+    box-shadow:0 30px 60px -34px rgba(110,70,160,.55),0 0 0 1px rgba(190,170,225,.3)}
+  .crop{width:390px; height:1010px; border-radius:26px; overflow:hidden; background:#f4ecff}
+  .crop iframe{width:390px; height:1010px; border:0; display:block}
+  .others{max-width:900px; margin:34px auto 0; display:flex; flex-wrap:wrap; gap:8px; justify-content:center}
+  .others a{font-size:12px; color:#7a639f; text-decoration:none; padding:8px 14px; border-radius:999px;
+    background:rgba(255,255,255,.7); box-shadow:0 4px 12px -8px rgba(110,70,160,.5); transition:transform .16s,background .16s}
+  .others a:hover{transform:translateY(-2px); background:#fff}
+  .note{max-width:900px; margin:26px auto 0; text-align:center; font-size:11px; color:#b6a5cf; line-height:2}
+  @media (max-width:520px){ body{padding:20px 10px 40px} .device{width:100%; max-width:406px} .crop{width:100%} }
+</style>
+</head>
+<body>
+  <h1>九重紫<span>Kokonoyu</span></h1>
+  <p class="lead">主页是 index.html（参考图那版）。下面是其余五个备选。</p>
+  <div class="stage"><div class="device"><div class="crop"><iframe src="index.html" title="九重紫 链接页"></iframe></div></div></div>
+  <div class="others">
+    <a href="index.html" target="_blank">打开主页</a>
+    <a href="01-cover.html" target="_blank">备选 01 封面卡</a>
+    <a href="02-hero.html" target="_blank">备选 02 满幅</a>
+    <a href="03-postcard.html" target="_blank">备选 03 明信片</a>
+    <a href="04-split.html" target="_blank">备选 04 分屏</a>
+    <a href="05-tiles.html" target="_blank">备选 05 贴纸墙</a>
+  </div>
+  <p class="note">头像与插画版权归九重紫及合作画师所有 · 非官方整理</p>
+</body>
+</html>

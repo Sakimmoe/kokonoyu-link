@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>九重紫 · Kokonoyu</title>
+<link rel="icon" href="assets/images/favicon.png">
+<meta name="description" content="九重紫（Kokonoe Yukari）的链接页：直播间、B 站、YouTube、X、FANBOX 与紫记。">
+<style>
+  @font-face{font-family:"Resource Han Rounded CN";src:url("assets/fonts/RHR-CN.woff2") format("woff2");font-weight:200 900;font-display:swap}
+  :root{
+    --font:"Resource Han Rounded CN","Hiragino Maru Gothic ProN","PingFang SC","Microsoft YaHei",sans-serif;
+    --bg:#f4ecff;
+    --bg-2:#fdf7ff;
+    --ink:#5f4b86;
+    --ink-2:#8a75ad;
+    --ink-3:#b6a5cf;
+    --violet:#8b6fc4;
+    --violet-d:#6f57a6;
+    --pink:#f2a7c3;
+    --line:#e7dcf8;
+    --pill:#fffdfe;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; min-height:100svh; color:var(--ink);
+    font-family:var(--font);
+    background:
+      radial-gradient(90% 50% at 20% 0%, #fdf2ff 0%, rgba(253,242,255,0) 60%),
+      radial-gradient(80% 46% at 100% 10%, #efe3ff 0%, rgba(239,227,255,0) 60%),
+      radial-gradient(90% 40% at 50% 100%, #ffeef6 0%, rgba(255,238,246,0) 62%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* 背景装饰 */
+  .deco{position:fixed; inset:0; pointer-events:none; z-index:0; color:#b9a3e3}
+  .deco svg{position:absolute; fill:currentColor; stroke:none}
+  .deco{color:#b9a3e3}
+  .d-flower-l{left:-52px; bottom:-34px; width:168px; opacity:.22; transform:rotate(-12deg); color:#c6aeea}
+  .d-flower-r{right:-58px; bottom:24px; width:180px; opacity:.18; transform:rotate(14deg); color:#d3bbf2}
+  .d-flower-t{left:-46px; top:96px; width:120px; opacity:.18; transform:rotate(20deg); color:#c9b2ec}
+  .d-bow-1{right:16px; top:64px; width:50px; opacity:.38; transform:rotate(-8deg); color:#c2a8e8}
+  .d-bow-2{left:10px; top:46%; width:40px; opacity:.24; transform:rotate(10deg); color:#cdb5ee}
+  .d-spark-1{right:30px; top:38%; width:18px; opacity:.5; color:#cbb2ec}
+  .d-spark-2{left:26px; top:24%; width:13px; opacity:.4; color:#cbb2ec}
+  .d-spark-3{right:52px; bottom:14%; width:20px; opacity:.35; color:#cbb2ec}
+  .d-cat{left:6px; top:54%; width:66px; opacity:.22; transform:rotate(-6deg); color:#bda4e6; fill:none; stroke:currentColor; stroke-width:2.4}
+
+  .page{position:relative; z-index:1; width:100%; max-width:560px; margin:0 auto; padding-bottom:38px}
+
+  /* 顶部：原图 home.jpg，不做任何裁剪 */
+  .hero{position:relative; background:#fff}
+  .hero > img{display:block; width:100%; height:auto}
+  .hero::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:26%;
+    background:linear-gradient(180deg, rgba(244,236,255,0), rgba(244,236,255,.55));
+    pointer-events:none;
+  }
+  .title{position:relative; z-index:2; margin:18px 20px 0; text-align:center; color:var(--violet-d)}
+  h1{
+    margin:0; font-size:27px; letter-spacing:.12em; font-weight:700; color:#6b53a4;
+  }
+  .title .sub{
+    display:block; margin-top:1px; font-size:12px; letter-spacing:.24em; color:#a58ac9;
+  }
+  .title .note{
+    margin:8px 0 0; font-size:12px; line-height:1.6; color:#8f74b8;
+  }
+  .title .note svg{display:inline-block; vertical-align:-2px; margin-left:2px; width:14px; height:14px}
+
+  /* 链接条 */
+  .links{position:relative; z-index:3; margin:22px 20px 0; display:flex; flex-direction:column; gap:14px}
+  .pill{
+    display:grid; grid-template-columns:30px 1fr 16px; align-items:center; gap:12px;
+    min-height:66px; padding:0 22px 0 20px;
+    background:var(--pill); border-radius:999px; text-decoration:none; color:var(--ink);
+    box-shadow:0 10px 22px -14px rgba(120,85,170,.45), 0 0 0 1px rgba(255,255,255,.9) inset;
+    transition:transform .18s cubic-bezier(.3,1.2,.5,1), box-shadow .18s;
+  }
+  .pill:hover{transform:translateY(-2px); box-shadow:0 16px 28px -16px rgba(120,85,170,.5), 0 0 0 1px rgba(255,255,255,.9) inset}
+  .pill:focus-visible{outline:2px solid rgba(139,111,196,.5); outline-offset:3px}
+  .pill .ic{color:var(--violet); display:grid; place-items:center}
+  .pill .ic svg{width:26px; height:26px}
+  .pill b{font-size:15.5px; font-weight:500; letter-spacing:.06em; color:#6a5590}
+  .pill .chev{color:#c3b0dd}
+  .pill:hover .chev{color:var(--violet)}
+
+  /* 次级链接 */
+  .mini{
+    margin:26px auto 0; max-width:430px; display:flex; flex-wrap:wrap; justify-content:center;
+    gap:2px 0; padding:0 16px; list-style:none;
+  }
+  .mini a{
+    font-size:12px; color:#8a75ad; text-decoration:none; letter-spacing:.06em;
+    padding:6px 10px; border-radius:999px; transition:color .2s, background .2s;
+  }
+  .mini a:hover{color:var(--violet-d); background:rgba(255,255,255,.7)}
+  .mini .dot{color:#cbb9e4; padding:6px 0; font-size:10px}
+
+  /* 结尾 */
+  .thanks{
+    margin:30px auto 0; text-align:center; font-size:15px; color:#9b86c4;
+    letter-spacing:.12em; position:relative; display:table;
+  }
+  .thanks::after{
+    content:""; position:absolute; left:-6px; right:-6px; bottom:-9px; height:6px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'%3E%3Cpath d='M2 5.5C22 1.5 38 1 58 3.6 78 6.2 96 6 118 2.6' fill='none' stroke='%23cbb2e8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 6px;
+    opacity:.9;
+  }
+  .thanks svg{width:14px; height:14px; vertical-align:-2px; margin-left:3px; color:#e19cc0}
+
+  footer{
+    margin:26px auto 0; text-align:center; font-size:11.5px; color:#b6a5cf; letter-spacing:.16em;
+  }
+  footer .fl{color:#c2a9e6; margin:0 6px}
+
+  .i{fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+  .sprite{position:absolute; width:0; height:0; overflow:hidden}
+
+  @media (min-width:760px){
+    body{padding:34px 0 50px}
+    .page{padding-bottom:44px}
+    .hero{border-radius:26px; overflow:hidden; box-shadow:0 26px 60px -40px rgba(110,70,160,.6)}
+    .title{margin-top:24px}
+    h1{font-size:30px}
+    .links{margin:26px 46px 0}
+    .pill{min-height:70px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="live" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.1"/><path d="M8.3 8.3a5.3 5.3 0 0 0 0 7.4M15.7 15.7a5.3 5.3 0 0 0 0-7.4"/><path d="M5.5 5.5a9.1 9.1 0 0 0 0 12.9M18.5 18.5a9.1 9.1 0 0 0 0-12.9"/></symbol>
+  <symbol id="bili" viewBox="0 0 24 24"><rect x="2.6" y="7.2" width="18.8" height="12.6" rx="3.4"/><path d="M7.4 3.2 10 6.4M16.6 3.2 14 6.4"/></symbol>
+  <symbol id="yt" viewBox="0 0 24 24"><rect x="2.2" y="5.4" width="19.6" height="13.2" rx="4"/><path d="M10.3 9.2 15.2 12l-4.9 2.8z"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></symbol>
+  <symbol id="fanbox" viewBox="0 0 24 24"><path d="M3.4 8.2 12 4l8.6 4.2v7.6L12 20l-8.6-4.2z"/><path d="M3.4 8.2 12 12.4l8.6-4.2M12 12.4V20"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><rect x="4.6" y="3.2" width="14.8" height="17.6" rx="2.6"/><path d="M8.6 8.4h6.8M8.6 12h6.8M8.6 15.6h4"/></symbol>
+  <symbol id="afd" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M13.1 6.4 8.9 12.5h2.9l-1 5.1 4.3-6.4h-3z"/></symbol>
+  <symbol id="booth" viewBox="0 0 24 24"><path d="M5.6 8.4h12.8L19.4 20H4.6z"/><path d="M9.2 8.4V6.6a2.8 2.8 0 0 1 5.6 0v1.8"/></symbol>
+  <symbol id="sub" viewBox="0 0 24 24"><path d="M3.6 6.6h16.8v9.2h-9l-5.2 3.6v-3.6H3.6z"/><path d="M7.6 10.2h8.8M7.6 12.9h5.4"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 20.3S3.4 15 3.4 9.3a4.4 4.4 0 0 1 8.6-1.9 4.4 4.4 0 0 1 8.6 1.9c0 5.7-8.6 11-8.6 11z"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.4 18.6 12 13 17.6"/></symbol>
+  <symbol id="flower" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="26" rx="15" ry="23"/><ellipse cx="50" cy="26" rx="15" ry="23" transform="rotate(72 50 50)"/><ellipse cx="50" cy="26" rx="15" ry="23" transform="rotate(144 50 50)"/><ellipse cx="50" cy="26" rx="15" ry="23" transform="rotate(216 50 50)"/><ellipse cx="50" cy="26" rx="15" ry="23" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="7"/>
+  </symbol>
+  <symbol id="bow" viewBox="0 0 100 70">
+    <path d="M50 34c-9-14-22-22-30-16-8 6-4 20 10 24-14 4-18 18-10 24 8 6 21-2 30-16 9 14 22 22 30 16 8-6 4-20-10-24 14-4 18-18 10-24-8-6-21 2-30 16z"/>
+    <circle cx="50" cy="35" r="7"/>
+  </symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 4.6 1.9 7 4.9 7.9 2.2.7 3.6 1 4.6 1.1-4.6.6-7 1.9-7.9 4.9-.7 2.2-1 3.6-1.1 4.6-.6-4.6-1.9-7-4.9-7.9-2.2-.7-3.6-1-4.6-1.1 4.6-.6 7-1.9 7.9-4.9.7-2.2 1-3.6 1.1-4.6z"/></symbol>
+  <symbol id="cat" viewBox="0 0 80 70">
+    <path d="M14 30c0-7 4-13 11-15 2-4 5-6 8-6 3 0 5 2 7 5 8 0 14 6 14 15v6c0 11-9 19-21 19s-19-8-19-19z"/>
+    <path d="M8 20c2 3 4 4 6 4M48 9c2-3 5-4 7-4"/>
+    <circle cx="26" cy="36" r="1.6" fill="currentColor" stroke="none"/><circle cx="40" cy="36" r="1.6" fill="currentColor" stroke="none"/>
+    <path d="M31 43c1.5 1.5 4.5 1.5 6 0"/>
+  </symbol>
+</svg>
+
+<div class="deco" aria-hidden="true">
+  <svg class="d-flower-l" viewBox="0 0 100 100"><use href="#flower"/></svg>
+  <svg class="d-flower-r" viewBox="0 0 100 100"><use href="#flower"/></svg>
+  <svg class="d-flower-t" viewBox="0 0 100 100"><use href="#flower"/></svg>
+  <svg class="d-bow-1" viewBox="0 0 100 70"><use href="#bow"/></svg>
+  <svg class="d-bow-2" viewBox="0 0 100 70"><use href="#bow"/></svg>
+  <svg class="d-spark-1" viewBox="0 0 24 24"><use href="#spark"/></svg>
+  <svg class="d-spark-2" viewBox="0 0 24 24"><use href="#spark"/></svg>
+  <svg class="d-spark-3" viewBox="0 0 24 24"><use href="#spark"/></svg>
+  <svg class="d-cat" viewBox="0 0 80 70"><use href="#cat"/></svg>
+</div>
+
+<div class="page">
+  <header class="hero">
+    <img src="assets/images/home.jpg" alt="九重紫" width="1620" height="580">
+  </header>
+
+  <div class="title">
+    <h1>九重紫</h1>
+    <span class="sub">Kokonoyu</span>
+    <p class="note">欢迎来到 我的小小世界<svg viewBox="0 0 24 24"><use href="#heart"/></svg></p>
+  </div>
+
+  <nav class="links" aria-label="主要链接">
+    <a class="pill" href="https://live.bilibili.com/9162799" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#live"/></svg></span>
+      <b>Bilibili 直播间</b>
+      <svg class="i chev" width="16" height="16"><use href="#chev"/></svg>
+    </a>
+    <a class="pill" href="https://space.bilibili.com/225347042" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#bili"/></svg></span>
+      <b>Bilibili 主页</b>
+      <svg class="i chev" width="16" height="16"><use href="#chev"/></svg>
+    </a>
+    <a class="pill" href="https://www.youtube.com/@KokonoeYukari" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#yt"/></svg></span>
+      <b>YouTube</b>
+      <svg class="i chev" width="16" height="16"><use href="#chev"/></svg>
+    </a>
+    <a class="pill" href="https://twitter.com/Kokonoe_Yukari" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#x"/></svg></span>
+      <b>X / Twitter</b>
+      <svg class="i chev" width="16" height="16"><use href="#chev"/></svg>
+    </a>
+    <a class="pill" href="https://kokonoe-yukari.fanbox.cc" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#fanbox"/></svg></span>
+      <b>Fanbox</b>
+      <svg class="i chev" width="16" height="16"><use href="#chev"/></svg>
+    </a>
+    <a class="pill" href="https://zi.kokonoyu.com/" target="_blank" rel="noopener">
+      <span class="ic"><svg class="i"><use href="#book"/></svg></span>
+      <b>紫记 · 个人资料</b>
+      <svg class="i chev" width="16" height="16"><use href="#chev"/></svg>
+    </a>
+  </nav>
+
+  <ul class="mini">
+    <li><a href="https://www.kokonoyu.com/" target="_blank" rel="noopener">个人主页</a></li><li class="dot">·</li>
+    <li><a href="https://afdian.com/a/kokonoeyukari" target="_blank" rel="noopener">爱发电</a></li><li class="dot">·</li>
+    <li><a href="https://kokonoeyukari.booth.pm" target="_blank" rel="noopener">BOOTH</a></li><li class="dot">·</li>
+    <li><a href="https://sub.kokonoyu.com/" target="_blank" rel="noopener">同传</a></li><li class="dot">·</li>
+    <li><a href="https://www.kokonoyu.com/works.html" target="_blank" rel="noopener">作品</a></li><li class="dot">·</li>
+    <li><a href="https://www.kokonoyu.com/music.html" target="_blank" rel="noopener">音乐</a></li><li class="dot">·</li>
+    <li><a href="https://www.kokonoyu.com/gallery.html" target="_blank" rel="noopener">画廊</a></li><li class="dot">·</li>
+    <li><a href="https://www.kokonoyu.com/milestones.html" target="_blank" rel="noopener">历程</a></li><li class="dot">·</li>
+    <li><a href="https://www.kokonoyu.com/guestbook.html" target="_blank" rel="noopener">留言板</a></li>
+  </ul>
+
+  <p class="thanks">感谢你的到来<svg viewBox="0 0 24 24"><use href="#heart"/></svg></p>
+
+  <footer><span class="fl">❀</span>Kokonoyu<span class="fl">❀</span></footer>
+</div>
+
+</body>
+</html>
