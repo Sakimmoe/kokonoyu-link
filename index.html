@@ -75,12 +75,17 @@
   .title .note svg{display:inline-block; vertical-align:-2px; margin-left:2px; width:14px; height:14px}
 
   /* 链接条 */
+  .links::before{
+    content:""; position:absolute; inset:-26px -14px; z-index:-1; pointer-events:none;
+    background:radial-gradient(58% 54% at 50% 50%, rgba(255,255,255,.62), rgba(255,255,255,0) 72%);
+    filter:blur(16px);
+  }
   .links{
     position:relative; z-index:3; margin:0; display:flex; flex-direction:column; gap:2px;
     padding:0; background:transparent; box-shadow:none; border-radius:0;
   }
   .pill{
-    position:relative; display:grid; grid-template-columns:26px 1fr; align-items:center; gap:11px;
+    position:relative; display:flex; align-items:center; justify-content:center; gap:10px;
     height:clamp(40px, 5.2vh, 50px); padding:0 12px;
     border-radius:999px; text-decoration:none; color:var(--ink);
     background:transparent; border:0; box-shadow:none;
